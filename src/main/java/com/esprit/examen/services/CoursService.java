@@ -56,18 +56,6 @@ public class CoursService implements ICoursService {
 
 	@Override
 	public void affecterCoursASession(Long coursId, Long sessionId) {
-	Optional<Cours>	optcours = coursRepository.findById(coursId);
-	Optional<Session> optsession = sessionRepository.findById(sessionId);
-	if(optcours.isPresent() && optsession.isPresent()) {
-		Cours cour = optcours.get();
-		Session session = optsession.get();
-		Set<Session> sessionSet = cour.getSessions();
-		sessionSet.add(session);
-		cour.setSessions(sessionSet);
-		coursRepository.save(cour);
-		Set<Cours> courSet = session.getCours();
-		courSet.add(cour);
-		sessionRepository.save(session);
 
 	}
 
